@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informasi Rupiah</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-cover bg-center" style="background-image: url('assets/background.png');">
+    <!-- Navbar -->
+    <nav id="navbar" class="bg-transparent fixed top-0 left-0 right-0 z-10 shadow-lg transition-all duration-300 ease-in-out animate-fadeIn">
+        <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+            <!-- Brand Logo/Name -->
+            <a href="index.html" class="text-2xl text-white font-bold hover:text-gray-300 flex items-center transition-all duration-300 ease-in-out animate-fadeIn delay-200">
+                <i class="fas fa-money-bill-wave mr-2"></i> RupiahNow Konverter
+
+            <!-- Navbar Links (for desktop) -->
+            <div class="hidden md:flex space-x-8 animate-fadeIn delay-400">
+                <a href="index.html" class="text-white text-lg font-medium hover:text-gray-300 transition-all duration-300 ease-in-out">Home</a>
+                <a href="info-rupiah.html" class="text-white text-lg font-medium hover:text-gray-300 transition-all duration-300 ease-in-out">Info Rupiah</a>
+                <a href="about-us.html" class="text-white text-lg font-medium hover:text-gray-300 transition-all duration-300 ease-in-out">Tentang</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden flex items-center">
+                <button id="burger-icon" class="text-white text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navbar Links -->
+        <div id="navbar-mobile" class="md:hidden hidden bg-black bg-opacity-75 p-4 transition-all ease-in-out duration-300 animate-fadeIn delay-600">
+            <a href="index.html" class="block text-white py-2 text-lg font-medium hover:text-gray-300">Home</a>
+            <a href="info-rupiah.html" class="block text-white py-2 text-lg font-medium hover:text-gray-300">Info Rupiah</a>
+            <a href="about-us.html" class="block text-white py-2 text-lg font-medium hover:text-gray-300">Tentang</a>
+        </div>
+    </nav>
+
+  <div class="min-h-screen flex flex-col items-center justify-center">
+    <div class="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-xl">
+      <h1 class="text-3xl font-semibold text-center mb-6 text-white">
+        <i class="fas fa-info-circle text-blue-400 mr-2"></i> Informasi Nilai Rupiah
+      </h1>
+
+      <!-- Pilihan Mata Uang -->
+      <div class="mb-6">
+        <label for="pilih-mata-uang" class="block text-sm font-medium mb-1 text-white">Pilih Mata Uang</label>
+        <div class="relative">
+          <select 
+            id="pilih-mata-uang" 
+            class="w-full px-4 py-3 border border-gray-700 bg-gray-700 rounded-md focus:ring-2 focus:ring-purple-500 focus:outline-none text-white">
+              <option value="" disabled selected>Pilih mata uang</option>
+              <option value="USD">USD - Amerika Serikat</option>
+              <option value="EUR">EUR - Euro (Eropa)</option>
+              <option value="JPY">JPY - Jepang</option>
+              <option value="GBP">GBP - Inggris</option>
+              <option value="AUD">AUD - Australia</option>
+              <option value="CAD">CAD - Kanada</option>
+              <option value="CHF">CHF - Swiss</option>
+              <option value="CNY">CNY - China</option>
+              <option value="INR">INR - India</option>
+              <option value="BRL">BRL - Brasil</option>
+              <option value="MXN">MXN - Meksiko</option>
+          </select>
+          <i class="fas fa-arrow-circle-down absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-400"></i>
+        </div>
+      </div>
+
+      <!-- Hasil -->
+      <div id="hasil" class="mt-6 text-center hidden">
+        <p class="text-lg font-semibold text-purple-400">Nilai Tukar Rupiah</p>
+        <p id="nilai-rupiah" class="text-2xl font-bold mt-2 text-white"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const pilihMataUang = document.getElementById('pilih-mata-uang');
+    const divHasil = document.getElementById('hasil');
+    const nilaiRupiah = document.getElementById('nilai-rupiah');
+
+    // Fungsi untuk mendapatkan nilai tukar
+    async function updateNilaiTukar() {
+      const mataUang = pilihMataUang.value;
+
+      if (!mataUang) return; // Pastikan mata uang dipilih
+
+      try {
+        const response = await fetch(`https://api.exchangerate-api.com/v4/latest/IDR`);
+        const data = await response.json();
+        const rate = data.rates[mataUang];
+
+        if (rate) {
+          divHasil.classList.remove('hidden');
+          nilaiRupiah.textContent = `1 ${mataUang} = ${(1 / rate).toFixed(2)} IDR`;
+        } else {
+          alert('Mata uang tidak tersedia!');
+        }
+      } catch (error) {
+        console.error(error);
+        alert('Terjadi kesalahan dalam mendapatkan nilai tukar.');
+      }
+    }
+
+    // Event listener untuk dropdown
+    pilihMataUang.addEventListener('change', updateNilaiTukar);
+  </script>
+    <footer class="bg-black text-white text-center py-4">
+        <p>&copy; 2024 Dibuat oleh Sadinal Mufti & Aulia Vika Rahman</p>
+    </footer>
+</body>
+</html>

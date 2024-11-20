@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Konverter Mata Uang</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/styles.css"> <!-- Link ke CSS file -->
+</head>
+<body class="bg-cover bg-center" style="background-image: url('assets/background.png');">
+    <!-- Navbar -->
+    <nav id="navbar" class="bg-transparent fixed top-0 left-0 right-0 z-10 shadow-lg transition-all duration-300 ease-in-out animate-fadeIn">
+        <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+            <!-- Brand Logo/Name -->
+            <a href="index.html" class="text-2xl text-white font-bold hover:text-gray-300 flex items-center transition-all duration-300 ease-in-out animate-fadeIn delay-200">
+                <i class="fas fa-money-bill-wave mr-2"></i> RupiahNow Konverter
+            </a>
+
+            <!-- Navbar Links (for desktop) -->
+            <div class="hidden md:flex space-x-8 animate-fadeIn delay-400">
+                <a href="index.html" class="text-white text-lg font-medium hover:text-gray-300 transition-all duration-300 ease-in-out">Home</a>
+                <a href="info-rupiah.html" class="text-white text-lg font-medium hover:text-gray-300 transition-all duration-300 ease-in-out">Info Rupiah</a>
+                <a href="about-us.html" class="text-white text-lg font-medium hover:text-gray-300 transition-all duration-300 ease-in-out">Tentang</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden flex items-center">
+                <button id="burger-icon" class="text-white text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navbar Links -->
+        <div id="navbar-mobile" class="md:hidden hidden bg-black bg-opacity-75 p-4 transition-all ease-in-out duration-300 animate-fadeIn delay-600">
+            <a href="index.html" class="block text-white py-2 text-lg font-medium hover:text-gray-300">Home</a>
+            <a href="info-rupiah.html" class="block text-white py-2 text-lg font-medium hover:text-gray-300">Info Rupiah</a>
+            <a href="about-us.html" class="block text-white py-2 text-lg font-medium hover:text-gray-300">Tentang</a>
+        </div>
+    </nav>
+
+    <!-- Container utama -->
+    <div class="min-h-screen flex flex-col items-center justify-center mt-20"> <!-- Menambahkan margin-top untuk memberi jarak dengan navbar -->
+        <div class="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-3xl"> <!-- Memperbesar lebar container -->      
+          <h1 class="text-3xl font-semibold text-center mb-6 text-white">
+            <i class="fas fa-money-bill-wave text-green-400 mr-2"></i> Konverter Mata Uang
+          </h1>    
+
+      <!-- Input Jumlah -->
+      <div class="mb-6">
+        <label for="jumlah" class="block text-sm font-medium mb-1 text-white">Jumlah</label>
+        <div class="relative">
+          <input 
+            type="number" 
+            id="jumlah" 
+            class="w-full px-4 py-3 border border-gray-700 bg-gray-700 rounded-md focus:ring-2 focus:ring-purple-500 focus:outline-none text-white" 
+            placeholder="Masukkan jumlah uang"
+          />
+          <i class="fas fa-dollar-sign absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-400"></i>
+        </div>
+      </div>
+      
+      <!-- Pilihan Mata Uang -->
+      <div class="grid grid-cols-2 gap-6 mb-6"> <!-- Menambah jarak antar kolom -->
+        <div>
+        <label for="dari-mata-uang" class="block text-sm font-medium mb-1 text-white">Dari</label>
+          <div class="relative">
+            <select 
+                id="dari-mata-uang" 
+                class="w-full px-4 py-3 border border-gray-700 bg-gray-700 rounded-md focus:ring-2 focus:ring-purple-500 focus:outline-none text-white">
+                <option value="USD">USD - Amerika Serikat</option>
+                <option value="IDR">IDR - Indonesia</option>
+                <option value="EUR">EUR - Euro (Eropa)</option>
+                <option value="JPY">JPY - Jepang</option>
+                <option value="GBP">GBP - Inggris</option>
+                <option value="AUD">AUD - Australia</option>
+                <option value="CAD">CAD - Kanada</option>
+                <option value="CHF">CHF - Swiss</option>
+                <option value="CNY">CNY - China</option>
+                <option value="INR">INR - India</option>
+                <option value="BRL">BRL - Brasil</option>
+                <option value="MXN">MXN - Meksiko</option>
+            </select>
+            <i class="fas fa-arrow-circle-down absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-400"></i>
+          </div>
+        </div>
+        <div>
+          <label for="ke-mata-uang" class="block text-sm font-medium mb-1 text-white">Ke</label>
+          <div class="relative">
+            <select 
+                id="ke-mata-uang" 
+                class="w-full px-4 py-3 border border-gray-700 bg-gray-700 rounded-md focus:ring-2 focus:ring-purple-500 focus:outline-none text-white">
+                <option value="USD">USD - Amerika Serikat</option>
+                <option value="IDR">IDR - Indonesia</option>
+                <option value="EUR">EUR - Euro (Eropa)</option>
+                <option value="JPY">JPY - Jepang</option>
+                <option value="GBP">GBP - Inggris</option>
+                <option value="AUD">AUD - Australia</option>
+                <option value="CAD">CAD - Kanada</option>
+                <option value="CHF">CHF - Swiss</option>
+                <option value="CNY">CNY - China</option>
+                <option value="INR">INR - India</option>
+                <option value="BRL">BRL - Brasil</option>
+                <option value="MXN">MXN - Meksiko</option>
+            </select>
+            <i class="fas fa-arrow-circle-down absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-400"></i>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Tombol Konversi -->
+    <button 
+        id="konversi" 
+        class="w-full flex items-center justify-center bg-purple-600 text-white py-3 rounded-md hover:bg-purple-700 transition">
+        <i class="fas fa-exchange-alt mr-3"></i> Konversi
+    </button>
+      
+      <!-- Hasil -->
+      <div id="hasil" class="mt-6 text-center hidden">
+        <p class="text-lg font-semibold text-purple-400">Hasil Konversi:</p>
+        <p id="jumlah-terkonversi" class="text-2xl font-bold mt-2 text-white"></p>
+      </div>
+
+      <!-- Tombol Toggle Riwayat -->
+      <button 
+        id="toggle-riwayat" 
+        class="mt-4 w-full bg-gray-600 text-white py-2 rounded-md hover:bg-gray-700 transition">
+        <i class="fas fa-history mr-2"></i> Tampilkan Riwayat
+      </button>
+    </div>
+    
+    <!-- Riwayat Konversi (Awalnya tersembunyi) -->
+    <div class="bg-gray-800 mt-6 p-6 rounded-lg shadow-lg w-full max-w-md hidden" id="riwayat-container" style="max-height: 300px; overflow-y: auto;">
+        <h2 class="text-lg font-bold text-center text-white">
+        <i class="fas fa-history text-yellow-400"></i> Riwayat Konversi
+        </h2>
+        <ul id="riwayat" class="mt-4 text-sm space-y-2 cursor-pointer text-white">
+        <!-- Riwayat akan ditambahkan di sini -->
+        </ul>
+        <button id="hapus-riwayat" class="mt-4 w-full bg-red-600 text-white py-2 rounded-md hover:bg-red-700 flex justify-center items-center hidden">
+        <i class="fas fa-trash-alt mr-2"></i> Hapus Semua Riwayat
+        </button>
+    </div>
+
+  <script>
+    const tombolKonversi = document.getElementById('konversi');
+    const divHasil = document.getElementById('hasil');
+    const jumlahTerkonversi = document.getElementById('jumlah-terkonversi');
+    const riwayatList = document.getElementById('riwayat');
+    const riwayatContainer = document.getElementById('riwayat-container');
+    const hapusRiwayatButton = document.getElementById('hapus-riwayat');
+    const toggleRiwayatButton = document.getElementById('toggle-riwayat');
+    
+    // Riwayat akan disimpan di sini terlebih dahulu
+    let riwayatData = [];
+
+    // Fungsi untuk menambahkan riwayat
+    function tambahRiwayat(jumlah, dariMataUang, hasilKonversi, keMataUang) {
+      riwayatData.push({ jumlah, dariMataUang, hasilKonversi, keMataUang });
+      if (!riwayatContainer.classList.contains('hidden')) {
+        tampilkanRiwayat(); // Update riwayat ketika riwayat ditampilkan
+      }
+    }
+
+    // Fungsi untuk menampilkan riwayat
+    function tampilkanRiwayat() {
+      riwayatList.innerHTML = '';
+      riwayatData.forEach((riwayat, index) => {
+        const itemRiwayat = document.createElement('li');
+        itemRiwayat.className = "bg-gray-700 p-2 rounded-md flex justify-between items-center hover:bg-gray-600";
+        itemRiwayat.innerHTML = `
+          ${riwayat.jumlah} ${riwayat.dariMataUang} → ${riwayat.hasilKonversi} ${riwayat.keMataUang}
+          <button class="ml-4 text-red-500 hover:text-red-700 text-xs" onclick="hapusRiwayat(${index})">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        `;
+        riwayatList.appendChild(itemRiwayat);
+      });
+
+      // Jika riwayat kosong, sembunyikan tombol hapus semua riwayat
+      if (riwayatData.length === 0) {
+        hapusRiwayatButton.classList.add('hidden');
+      } else {
+        hapusRiwayatButton.classList.remove('hidden');
+      }
+    }
+
+    // Fungsi untuk menghapus riwayat
+    function hapusRiwayat(index) {
+      riwayatData.splice(index, 1); // Menghapus item berdasarkan index
+      tampilkanRiwayat(); // Update tampilan riwayat setelah penghapusan
+    }
+
+    // Tombol konversi
+    tombolKonversi.addEventListener('click', async () => {
+      const jumlah = parseFloat(document.getElementById('jumlah').value);
+      const dariMataUang = document.getElementById('dari-mata-uang').value;
+      const keMataUang = document.getElementById('ke-mata-uang').value;
+
+      if (!jumlah || jumlah <= 0) {
+        alert('Masukkan jumlah uang yang valid!');
+        return;
+      }
+
+      try {
+        const response = await fetch(`https://api.exchangerate-api.com/v4/latest/${dariMataUang}`);
+        const data = await response.json();
+        const rate = data.rates[keMataUang];
+        const hasilKonversi = (jumlah * rate).toFixed(2);
+
+        // Menampilkan hasil konversi
+        divHasil.classList.remove('hidden');
+        jumlahTerkonversi.textContent = `${jumlah} ${dariMataUang} = ${hasilKonversi} ${keMataUang}`;
+        
+        // Tambahkan ke riwayat
+        tambahRiwayat(jumlah, dariMataUang, hasilKonversi, keMataUang);
+      } catch (error) {
+        console.error(error);
+        alert('Terjadi kesalahan dalam konversi.');
+      }
+    });
+
+    // Tombol untuk toggle riwayat
+    toggleRiwayatButton.addEventListener('click', () => {
+      riwayatContainer.classList.toggle('hidden');
+      if (!riwayatContainer.classList.contains('hidden')) {
+        tampilkanRiwayat(); // Tampilkan riwayat saat dibuka
+      }
+    });
+
+    // Hapus Semua Riwayat
+    hapusRiwayatButton.addEventListener('click', () => {
+      riwayatData = [];
+      tampilkanRiwayat(); // Update riwayat
+      riwayatContainer.classList.add('hidden'); // Sembunyikan riwayat setelah dihapus
+    });
+  </script>
+</body>
+</html>
