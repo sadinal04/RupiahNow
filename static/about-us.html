@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <!-- Link ke file CSS eksternal -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="bg-cover bg-center" style="background-image: url('assets/background.png');">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="bg-transparent fixed top-0 left-0 right-0 z-10 shadow-lg transition-all duration-300 ease-in-out">
+        <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+            <!-- Brand Logo/Name -->
+            <a href="index.html" class="text-2xl text-white font-bold hover:text-gray-300 flex items-center transition-all duration-300 ease-in-out">
+                <i class="fas fa-money-bill-wave mr-2"></i> RupiahNow Konverter
+            </a>
+
+            <!-- Navbar Links (for desktop) -->
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-white text-lg font-medium hover:text-gray-300 transition-all duration-300 ease-in-out">Home</a>
+                <a href="info-rupiah.html" class="text-white text-lg font-medium hover:text-gray-300 transition-all duration-300 ease-in-out">Info Rupiah</a>
+                <a href="about-us.html" class="text-white text-lg font-medium hover:text-gray-300 transition-all duration-300 ease-in-out">Tentang</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden flex items-center">
+                <button id="burger-icon" class="text-white text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navbar Links -->
+        <div id="navbar-mobile" class="md:hidden hidden bg-black bg-opacity-75 p-4 transition-all ease-in-out">
+            <a href="index.html" class="block text-white py-2 text-lg font-medium hover:text-gray-300">Home</a>
+            <a href="info-rupiah.html" class="block text-white py-2 text-lg font-medium hover:text-gray-300">Info Rupiah</a>
+            <a href="about-us.html" class="block text-white py-2 text-lg font-medium hover:text-gray-300">Tentang</a>
+        </div>
+    </nav>
+
+    <!-- About Us Section -->
+    <div class="min-h-screen flex items-center justify-center bg-black bg-opacity-50 py-16">
+        <div class="bg-black bg-opacity-70 p-10 rounded-lg shadow-xl w-full max-w-4xl">
+            <!-- Heading: Tentang Kami -->
+            <h1 class="text-4xl font-semibold text-center mb-6 text-white animate-fadeIn">
+                Tentang Kami
+            </h1>
+
+            <!-- Deskripsi Aplikasi -->
+            <p class="text-lg text-white mb-6 animate-fadeIn delay-200">
+                Aplikasi ini dibuat untuk membantu pengguna dalam mengonversi mata uang dari berbagai negara ke Rupiah Indonesia. Kami menggunakan data yang akurat untuk memastikan nilai tukar yang tepat.
+            </p>
+            <p class="text-lg text-white animate-fadeIn delay-400">
+                Dengan antarmuka yang ramah pengguna, aplikasi ini dirancang untuk memberi kenyamanan dalam melakukan konversi mata uang kapan saja dan di mana saja.
+            </p>
+
+            <!-- Fitur Utama -->
+            <h2 class="text-3xl font-semibold text-center mt-12 text-white animate-fadeIn delay-600">Fitur Utama</h2>
+            <div class="mt-6">
+                <ul class="list-inside text-lg text-white mt-4 animate-fadeIn delay-800">
+                    <li class="mb-4">
+                        <strong class="text-xl">Konversi Mata Uang</strong><br>
+                        Mengonversi berbagai mata uang internasional ke mata uang lain, termasuk Rupiah Indonesia.
+                    </li>
+                    <li class="mb-4">
+                        <strong class="text-xl">Melihat Nilai Tukar Rupiah</strong><br>
+                        Menampilkan nilai tukar Rupiah Indonesia terhadap mata uang lainnya secara real-time.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dibuat oleh Sadinal Mufti & Aulia Vika Rahman (Footer) -->
+    <footer class="bg-black text-white text-center py-4">
+        <p>&copy; 2024 Dibuat oleh Sadinal Mufti & Aulia Vika Rahman</p>
+    </footer>
+
+</body>
+
+</html>
